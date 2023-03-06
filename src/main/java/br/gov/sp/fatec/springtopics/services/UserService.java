@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -25,4 +26,13 @@ public class UserService {
     public List<User> fetchAllUsers() {
         return userRepo.findAll();
     }
+
+    public User userFindByID(Long id) {
+        Optional<User> userOp = userRepo.findById(id);
+        if (userOp.isEmpty()) {
+            throw new IllegalArgumentException("User does not exist");
+        }
+        return userOp.get();
+    }
+
 }
