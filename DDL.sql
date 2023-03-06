@@ -1,3 +1,4 @@
+drop database annotation;
 create schema annotation;
 
 use annotation;
