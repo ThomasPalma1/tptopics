@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springtopics.services;
+package br.gov.sp.fatec.springtopics.service;
 
 
 import java.util.List;

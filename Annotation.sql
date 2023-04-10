@@ -10,3 +10,5 @@ create table ant_annotation (
   primary key (ant_id),
   foreign key ant_usr_fk(ant_usr_id) references usr_user(usr_id)
 );
+
+insert into ant_annotation(ant_text, ant_usr_id) values ('Test', 1)

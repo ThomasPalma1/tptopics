@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springtopics.services;
+package br.gov.sp.fatec.springtopics.service;
 
 import br.gov.sp.fatec.springtopics.entity.User;
 import br.gov.sp.fatec.springtopics.exception.UserNotFoundException;
