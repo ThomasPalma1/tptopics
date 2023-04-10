@@ -19,6 +19,6 @@ public interface AnnotationRepository extends JpaRepository<Annotation, Long> {
 
     // public List<Annotation> findByUsername(String nameUser);
 
-    @Query("select a from Annotation a join a.usuario u where u.name = ?1")
+    @Query("select a from Annotation a join a.user u where u.name = ?1")
     public List<Annotation> findByUsername(String nameUser);
 }

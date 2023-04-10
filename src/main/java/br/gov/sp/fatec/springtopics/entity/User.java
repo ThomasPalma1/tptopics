@@ -36,6 +36,9 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+        // Empty Constructor
+    }
 
     public Long getId() {
         return id;
@@ -69,5 +72,11 @@ public class User {
         this.authorization = authorization;
     }
 
+    public List<Annotation> getAnnotation() {
+        return annotation;
+    }
 
+    public void setAnnotation(List<Annotation> annotation) {
+        this.annotation = annotation;
+    }
 }

@@ -1,9 +1,9 @@
-drop database annotation;
+drop user if exists 'user'@'localhost';
+drop schema if exists annotation;
 create schema annotation;
 
 use annotation;
 
-drop user user@localhost;
 flush privileges;
 
 create user 'user'@'localhost' identified by 'pass123';
@@ -17,3 +17,5 @@ create table usr_user (
   primary key (usr_id),
   unique key uni_user_name (usr_name)
 );
+insert into usr_user (usr_name, usr_password)
+    values ('admin', '$2a$10$i3.Z8Yv1Fwl0I5SNjdCGkOTRGQjGvHjh/gMZhdc3e7LIovAklqM6C');
