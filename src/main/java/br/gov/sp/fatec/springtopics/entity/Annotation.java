@@ -18,7 +18,7 @@ public class Annotation {
     private LocalDateTime datetime;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ant_usr_id")
     private User user;
 

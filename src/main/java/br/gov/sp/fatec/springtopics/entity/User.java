@@ -1,6 +1,9 @@
 package br.gov.sp.fatec.springtopics.entity;
 
 import javax.persistence.*;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity // this class will map a table
 @Table(name = "usr_user")
@@ -17,14 +20,22 @@ public class User {
     @Column(name = "usr_password")
     private String password;
 
+    @ManyToMany
+    @JoinTable(name = "uau_user_authorization",
+            joinColumns = {@JoinColumn(name = "usr_id")},
+            inverseJoinColumns = {@JoinColumn(name = "aut_id")}
+    )
+    private List<Authorization> authorization;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Annotation> annotation;
+
     public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
 
-    public User() {
-        //Do nothing
-    }
 
     public Long getId() {
         return id;
@@ -49,4 +60,14 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<Authorization> getAuthorization() {
+        return authorization;
+    }
+
+    public void setAuthorization(List<Authorization> authorization) {
+        this.authorization = authorization;
+    }
+
+
 }
