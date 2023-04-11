@@ -31,6 +31,10 @@ public class User {
     @JsonIgnore
     private List<Annotation> annotation;
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Address> addresses;
+
     public User(String name, String password) {
         this.name = name;
         this.password = password;
@@ -84,5 +88,13 @@ public class User {
 
     public void setAnnotation(List<Annotation> annotation) {
         this.annotation = annotation;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 }

@@ -39,8 +39,9 @@ public class Address {
     @Column(name = "zip_code")
     private Integer zipCode;
 
-    // @Column(name = "add_usr_id")
-    // private Long id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "add_usr_id")
+    private User user;
 
     public Address() {
 
@@ -108,5 +109,13 @@ public class Address {
 
     public void setZipCode(Integer zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

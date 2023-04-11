@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AddressService implements InterfaceAddressService {
@@ -14,13 +15,26 @@ public class AddressService implements InterfaceAddressService {
     private AddressRepository addressRepo;
 
     public Address newAddress(Address address) {
-        if (address == null || address.getZipCode() == null)
-            throw new MissingFieldException(" Zip Code field is required");
+        if (address == null || address.getZipCode() == null) {
+            throw new MissingFieldException("Zip Code field is required");
+        }
+        return addressRepo.save(address);
     }
-    return addressRepo.save(user);
+
 
     @Override
     public List<Address> findAll() {
         return null;
+    }
+
+    @Override
+    public List<Address> searchForAllAddresses() {
+        return addressRepo.findAll();
+    }
+
+    @Override
+    public Address addressFindById(Long id) {
+        Optional<Address> optionalAddress = addressRepo.findById(id);
+        return optionalAddress.orElse(null);
     }
 }

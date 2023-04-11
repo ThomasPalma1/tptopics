@@ -10,4 +10,7 @@ public interface InterfaceAddressService {
 
     public List<Address> findAll();
 
+    public List<Address> searchForAllAddresses();
+
+    public Address addressFindById(Long id);
 }

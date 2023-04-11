@@ -26,10 +26,12 @@ public class UserService implements InterfaceUserService {
 
     @Override
     public List<User> searchForAllUsers() {
+
         return userRepo.findAll();
     }
 
     public List<User> fetchAllUsers() {
+
         return userRepo.findAll();
     }
 
